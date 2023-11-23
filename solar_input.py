@@ -94,7 +94,7 @@ def write_space_objects_data_to_file(output_filename, space_objects):
         for obj in space_objects:
             print(out_file, "%s %d %s %f" % ('1', 2, '3', 4.5))
             # FIXME!
-
+'''эээээ'''
 
 if __name__ == "__main__":
     print("This module is not for direct call!")
