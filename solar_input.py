@@ -60,7 +60,6 @@ def parse_star_parameters(line, star):
     star.y = float(line.split()[5])
     star.Vx = float(line.split()[6])
     star.Vy = float(line.split()[7])
-    pass  # FIXME: допишите парсер
 
 def parse_planet_parameters(line, planet):
     """Считывает данные о планете из строки.
@@ -87,7 +86,7 @@ def parse_planet_parameters(line, planet):
     planet.y = float(line.split()[5])
     planet.Vx = float(line.split()[6])
     planet.Vy = float(line.split()[7])
-    pass  # FIXME: допишите парсер
+
 
 def write_space_objects_data_to_file(output_filename, space_objects):
     """Сохраняет данные о космических объектах в файл.

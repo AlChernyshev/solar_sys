@@ -24,7 +24,6 @@ def calculate_force(body, space_objects):
         F = -gravitational_constant*body.m*obj.m/r**2
         body.Fx += (body.x - obj.x)/r*F
         body.Fy += (body.y - obj.y)/r*F
-        pass  # FIXME: Взаимодействие объектов
 
 def move_space_object(body, dt):
     """Перемещает тело в соответствии с действующей на него силой.
@@ -33,7 +32,6 @@ def move_space_object(body, dt):
 
     **body** — тело, которое нужно переместить.
     """
-    old = body.x  # FIXME: Вывести формулы для ускорения, скоростей и координат
     ax = body.Fx/body.m
     ay = body.Fy/body.m
     body.Vx += ax*dt
