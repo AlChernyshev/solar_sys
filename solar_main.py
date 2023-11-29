@@ -152,13 +152,14 @@ def main():
         handle_events(pg.event.get(), menu)
         cur_time = time.perf_counter()
         if perform_execution:
-            execution((cur_time - last_time) * time_scale)
-            text = "%d seconds passed" % (int(model_time))
-            timer.set_text(text)
+            if (cur_time - last_time) < 1/100:
+                execution((cur_time - last_time) * time_scale)
+                text = "%d seconds passed" % (int(model_time))
+                timer.set_text(text)
 
         last_time = cur_time
         drawer.update(space_objects, box)
-        time.sleep(1.0 / 1000000)
+        time.sleep(1.0 / 10000000)
 
     print('Modelling finished!')
 
