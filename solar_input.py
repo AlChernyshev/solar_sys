@@ -90,7 +90,6 @@ def write_space_objects_data_to_file(output_filename, space_objects):
     """
 
     with open(output_filename, 'w') as out_file:
-        print(space_objects)
         for obj in space_objects:
             if obj.obj.type == 'star':
                 s = 'Star '
