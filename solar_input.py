@@ -2,7 +2,7 @@
 # license: GPLv3
 
 from solar_objects import Star, Planet
-
+from solar_vis import DrawableObject
 
 def read_space_objects_data_from_file(input_filename):
     """Cчитывает данные о космических объектах из файла, создаёт сами объекты
@@ -23,14 +23,14 @@ def read_space_objects_data_from_file(input_filename):
                 star = Star()
                 parse_star_parameters(line, star)
                 objects.append(star)
-            if object_type == "planet":
+            elif object_type == "planet":
                 planet = Planet()
                 parse_planet_parameters(line, planet)
                 objects.append(planet)
             else:
                 print("Unknown space object")
 
-    return objects
+    return [DrawableObject(obj) for obj in objects]
 
 
 def parse_star_parameters(line, star):
@@ -90,14 +90,16 @@ def write_space_objects_data_to_file(output_filename, space_objects):
     """
 
     with open(output_filename, 'w') as out_file:
+        print(space_objects)
         for obj in space_objects:
-            if obj.type == 'star':
+            if obj.obj.type == 'star':
                 s = 'Star '
-            elif obj.type == 'planet':
+            elif obj.obj.type == 'planet':
                 s = 'Planet'
-            s += str(obj.R) + ' ' + str(obj.color) + ' ' + str(obj.m) + ' ' + str(obj.x) + ' '
-            s += str(obj.y) + ' ' + str(obj.Vx) + ' ' + str(obj.Vy) + '\n' + '\n'
+            s += str(obj.obj.R) + ' ' + str(obj.obj.color) + ' ' + str(obj.obj.m) + ' ' + str(obj.obj.x) + ' '
+            s += str(obj.obj.y) + ' ' + str(obj.obj.Vx) + ' ' + str(obj.obj.Vy) + '\n' + '\n'
             out_file.write(s)
+
 
 
 if __name__ == "__main__":
